@@ -1,0 +1,33 @@
+{
+  "name": "bc-asset-loader",
+  "version": "1.0.0",
+  "author": "beicun",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.config.dev.ts",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.ts\" \"demo/**/*.{ts,html,css}\""
+  },
+  "main": "./dist/bc-asset-loader.cjs.js",
+  "module": "./dist/bc-asset-loader.es.js",
+  "types": "./dist/bc-asset-loader.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/bc-asset-loader.es.js",
+      "require": "./dist/bc-asset-loader.cjs.js",
+      "types": "./dist/bc-asset-loader.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.1",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}

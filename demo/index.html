@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bc-asset-loader — Demo</title>
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- ローディングオーバーレイ -->
+    <div id="loading">
+      <p class="loading-label">Loading</p>
+      <div class="progress-wrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <p class="progress-percent" id="progressPercent">0%</p>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <main id="content">
+      <header class="site-header">
+        <h1>bc-asset-loader <span>Demo</span></h1>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title">Images</h2>
+        <div class="image-grid">
+          <img src="/images/image1.jpg" alt="image1" />
+          <img src="/images/image2.jpg" alt="image2" />
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Fonts</h2>
+        <ul class="font-list">
+          <li class="font-item">
+            <span class="font-meta">Self-hosted · TickingTimebombBB</span>
+            <span class="font-sample" style="font-family: 'TickingTimebombBB'; font-style: italic">
+              The quick brown fox jumps over the lazy dog
+            </span>
+          </li>
+          <li class="font-item">
+            <span class="font-meta">CDN · Noto Sans JP</span>
+            <span class="font-sample" style="font-family: 'Noto Sans JP'; font-weight: 400">
+              あのイーハトーヴォのすきとおった風
+            </span>
+          </li>
+          <li class="font-item">
+            <span class="font-meta">CDN · Roboto</span>
+            <span class="font-sample" style="font-family: 'Roboto'; font-weight: 400">
+              The quick brown fox jumps over the lazy dog
+            </span>
+          </li>
+          <li class="font-item">
+            <span class="font-meta">CDN · Roboto Mono Italic</span>
+            <span class="font-sample" style="font-family: 'Roboto Mono'; font-style: italic">
+              const loader = new BcAssetLoader({ ... })
+            </span>
+          </li>
+          <li class="font-item">
+            <span class="font-meta">CDN · Shippori Mincho</span>
+            <span class="font-sample" style="font-family: 'Shippori Mincho'">
+              山路を登りながら、こう考えた。
+            </span>
+          </li>
+          <li class="font-item">
+            <span class="font-meta">CDN · Silkscreen</span>
+            <span class="font-sample" style="font-family: 'Silkscreen'; font-weight: 700">
+              PIXEL FONT
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Video</h2>
+        <div class="video-wrap">
+          <video src="/videos/IMG_8400.mp4" controls playsinline></video>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        &copy;
+        <a href="https://www.beicundun.com/" target="_blank" rel="noopener noreferrer">BEICUNDUN</a>
+      </p>
+    </footer>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
