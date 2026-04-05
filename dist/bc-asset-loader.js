@@ -1,5 +1,5 @@
 /*!
-* bc-asset-loader v0.0.0
+* bc-asset-loader v1.0.0
 * (c) 2026 beicun
 * Released under the MIT License
 */

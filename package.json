@@ -1,8 +1,18 @@
 {
   "name": "bc-asset-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "画像・フォント・動画を非同期で一括プリロードする JavaScript ライブラリ",
+  "keywords": ["preload", "asset", "image", "font", "video", "loader", "progress"],
   "author": "beicun",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beicundun/bc-asset-loader.git"
+  },
+  "homepage": "https://github.com/beicundun/bc-asset-loader#readme",
+  "bugs": {
+    "url": "https://github.com/beicundun/bc-asset-loader/issues"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.dev.ts",
