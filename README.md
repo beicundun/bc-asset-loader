@@ -1,12 +1,12 @@
 # bc-asset-loader
 
-画像・フォント・動画を非同期で一括プリロードする JavaScript ライブラリです。
-ロードの進捗を `progress` プロパティで参照でき、プログレスバーやパーセント表示UIの実装に使用できます。
-画像やフォントのダウンロードが完了するまで画面を表示したくない場合や、レイアウトシフトを防止したい場合に適しています。
+A JavaScript library that asynchronously preloads images, fonts, and videos in bulk.
+You can read loading progress via the `progress` property, which is useful for progress bars or percentage UIs.
+It is well suited when you do not want to show the page until images and fonts have finished downloading, or when you want to prevent layout shift.
 
 ---
 
-## インストール
+## Installation
 
 **npm**
 
@@ -14,7 +14,7 @@
 npm install bc-asset-loader
 ```
 
-**scriptタグ or CDN（jsDelivr）**
+**Script tag or CDN (jsDelivr)**
 
 ```html
 <script src="bc-asset-loader.js"></script>
@@ -26,9 +26,15 @@ npm install bc-asset-loader
 
 ---
 
-## 使用例
+## Demo
 
-### npm経由での使用
+From the root of this repository, install dependencies with `npm install`, then run `npm run dev` to start the development server and open the demo.
+
+---
+
+## Usage
+
+### With npm
 
 ```typescript
 import BcAssetLoader from 'bc-asset-loader';
@@ -40,7 +46,7 @@ const loader = new BcAssetLoader({
   ],
   font: [
     { url: '/fonts/NotoSansJP-Regular.woff2', family: 'Noto Sans JP', weight: '400' },
-    { url: '/fonts/NotoSansJP-Bold.woff2',    family: 'Noto Sans JP', weight: '700' },
+    { url: '/fonts/NotoSansJP-Bold.woff2', family: 'Noto Sans JP', weight: '700' },
   ],
   extFont: [
     {
@@ -54,13 +60,13 @@ const loader = new BcAssetLoader({
     { url: '/video/intro.mp4' },
   ],
   onComplete: () => {
-    console.log('全アセットのロード完了');
+    console.log('All assets loaded');
   },
 });
 
 loader.load();
 
-// プログレスバーの更新
+// Update progress bar
 const progressBar = document.querySelector('.progress-bar');
 
 requestAnimationFrame(function update() {
@@ -69,20 +75,20 @@ requestAnimationFrame(function update() {
 });
 ```
 
-### scriptタグ or CDN（jsDelivr）での使用
+### With a script tag or CDN (jsDelivr)
 
 ```html
-<!-- ローカルファイル -->
+<!-- Local file -->
 <script src="bc-asset-loader.js"></script>
 
-<!-- CDN（jsDelivr） -->
+<!-- CDN (jsDelivr) -->
 <script src="https://cdn.jsdelivr.net/gh/beicundun/bc-asset-loader@main/dist/bc-asset-loader.js"></script>
 
 <script>
   const loader = new BcAssetLoader({
     image: [{ url: '/img/hero.jpg' }],
     onComplete: () => {
-      console.log('全アセットのロード完了');
+      console.log('All assets loaded');
     },
   });
   loader.load();
@@ -93,7 +99,7 @@ requestAnimationFrame(function update() {
 
 ## API
 
-### コンストラクタ
+### Constructor
 
 ```typescript
 new BcAssetLoader(options: BcAssetLoaderOptions)
@@ -101,13 +107,13 @@ new BcAssetLoader(options: BcAssetLoaderOptions)
 
 #### BcAssetLoaderOptions
 
-| プロパティ | 型 | 必須 | 説明 |
-|-----------|-----|------|------|
-| `image` | 配列 | 任意 | ロードする画像のリスト |
-| `font` | 配列 | 任意 | ロードするセルフホストフォントのリスト |
-| `extFont` | 配列 | 任意 | ロードする外部ホストフォント（Google Fontsなど）のリスト |
-| `video` | 配列 | 任意 | ロードする動画のリスト |
-| `onComplete` | 関数 | 任意 | 全アセットのロード完了時に呼ばれるコールバック |
+| Property | Type | Required | Description |
+|----------|------|----------|-------------|
+| `image` | Array | Optional | List of images to load |
+| `font` | Array | Optional | List of self-hosted fonts to load |
+| `extFont` | Array | Optional | List of externally hosted fonts (e.g. Google Fonts) to load |
+| `video` | Array | Optional | List of videos to load |
+| `onComplete` | Function | Optional | Callback invoked when all assets have finished loading |
 
 ```typescript
 interface BcAssetLoaderOptions {
@@ -138,12 +144,12 @@ interface BcAssetLoaderOptions {
 
 ---
 
-### メソッド
+### Methods
 
 #### `load(): Promise<void>`
 
-全アセットのロードを開始する。  
-`onComplete` コールバックは、ロード完了後に呼ばれる。
+Starts loading all assets.  
+The `onComplete` callback is invoked after loading completes.
 
 ```typescript
 await loader.load();
@@ -151,60 +157,60 @@ await loader.load();
 
 ---
 
-### プロパティ
+### Properties
 
 #### `loaded: boolean`
 
-全アセットのロードが完了したかどうか。
+Whether loading has finished for all assets.
 
 #### `loadedAmount: number`
 
-ロード済みの量。以下の合計値。
+How much has been loaded, as the sum of the following:
 
-| アセット種別 | 加算タイミング・値 |
-|-------------|-----------------|
-| `image` | 1ファイル完了ごとに `+1` |
-| `font` | 1ファイル完了ごとに `+1` |
-| `extFont` | 1URLの全フォントが完了したら `+1` |
-| `video` | バッファ済み割合（`0〜1`）をリアルタイムで加算 |
+| Asset type | When / how much is added |
+|------------|--------------------------|
+| `image` | `+1` per completed file |
+| `font` | `+1` per completed file |
+| `extFont` | `+1` when all fonts for one URL are done |
+| `video` | Buffered fraction (`0`–`1`) added in real time |
 
-> `video` のみ小数になるため、`loadedAmount` は整数とは限らない。
+> Only `video` contributes fractional values, so `loadedAmount` is not necessarily an integer.
 
 #### `totalAmount: number`
 
-アセットの総量。以下の合計値。
+Total workload, as the sum of the following:
 
-| アセット種別 | カウント方法 |
-|-------------|------------|
-| `image` | 指定した画像ファイルの数 |
-| `font` | 指定したフォントファイルの数 |
-| `extFont` | 指定した URL の数（1URL = 1） |
-| `video` | 指定した動画ファイルの数 |
+| Asset type | How it is counted |
+|------------|-------------------|
+| `image` | Number of image files specified |
+| `font` | Number of font files specified |
+| `extFont` | Number of URLs specified (1 URL = 1) |
+| `video` | Number of video files specified |
 
 #### `progress: number`
 
-ロードの進捗（`0〜1`）。`loadedAmount / totalAmount` で計算される。
+Loading progress (`0`–`1`), computed as `loadedAmount / totalAmount`.
 
 #### `onComplete: () => void`
 
-コンストラクタで渡した `onComplete` コールバックへの参照。
+Reference to the `onComplete` callback passed to the constructor.
 
 ---
 
-## エラーハンドリング
+## Error handling
 
-- 個別アセットのロードが失敗した場合、コンソールにエラーを出力し、そのアセットをスキップして残りのロードを続行する。
-- 全アセットのロード試行が完了した時点で `loaded = true` となり `onComplete` が呼ばれる。
-- ロード失敗したアセットは `progress` の計算から除外される。
+- If an individual asset fails to load, an error is logged to the console, that asset is skipped, and loading continues.
+- When all load attempts have finished, `loaded` becomes `true` and `onComplete` is called.
+- Assets that failed to load are excluded from the `progress` calculation.
 
 ---
 
 ## TypeScript
 
-型定義ファイル（`dist/bc-asset-loader.d.ts`）が同梱されています。追加インストールは不要です。
+Type definitions (`dist/bc-asset-loader.d.ts`) are bundled; no extra install is required.
 
 ---
 
-## ライセンス
+## License
 
 MIT
