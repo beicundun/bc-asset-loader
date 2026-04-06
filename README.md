@@ -20,7 +20,7 @@ npm install bc-asset-loader
 ```
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/beicun/bc-asset-loader/dist/bc-asset-loader.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/beicundun/bc-asset-loader@main/dist/bc-asset-loader.js"></script>
 ```
 
 ---
@@ -75,7 +75,7 @@ requestAnimationFrame(function update() {
 <script src="bc-asset-loader.js"></script>
 
 <!-- CDN（jsDelivr） -->
-<script src="https://cdn.jsdelivr.net/gh/beicun/bc-asset-loader/dist/bc-asset-loader.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/beicundun/bc-asset-loader@main/dist/bc-asset-loader.js"></script>
 
 <script>
   const loader = new BcAssetLoader({
