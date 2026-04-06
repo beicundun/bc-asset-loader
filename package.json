@@ -1,7 +1,7 @@
 {
   "name": "bc-asset-loader",
-  "version": "1.0.4",
-  "description": "画像・フォント・動画を非同期で一括プリロードする JavaScript ライブラリ",
+  "version": "1.0.5",
+  "description": "A JavaScript library that asynchronously preloads images, web fonts, and videos in bulk.",
   "keywords": [
     "preload",
     "asset",
