@@ -1,6 +1,6 @@
 {
   "name": "bc-asset-loader",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "画像・フォント・動画を非同期で一括プリロードする JavaScript ライブラリ",
   "keywords": [
     "preload",
@@ -13,15 +13,14 @@
   ],
   "author": {
     "name": "beicun",
-    "email": "beicundun@gmail.com",
-    "url": "https://www.beicundun.com"
+    "email": "beicundun@gmail.com"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/beicundun/bc-asset-loader.git"
   },
-  "homepage": "https://emotie.one",
+  "homepage": "https://kitamura.tech",
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.dev.ts",
