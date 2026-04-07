@@ -215,4 +215,5 @@ Type definitions (`dist/bc-asset-loader.d.ts`) are bundled; no extra install is 
 
 MIT
 
-[![bc-asset-loader](./public/images/0000421_icon.png)](https://www.beicundun.com/)
+## Library Banner
+[![bc-asset-loader](./library-banner.png)](https://www.beicundun.com/)
