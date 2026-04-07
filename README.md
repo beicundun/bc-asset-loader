@@ -1,8 +1,8 @@
-<div style="text-align: center;">
+<p style="text-align: center;">
 <a href="https://www.beicundun.com/" target="_blank" rel="noopener noreferrer">
   <img src="./library-banner.png" alt="bc-asset-loader library banner" width="100%" height="auto">
 </a>
-</div>
+</p>
 
 # bc-asset-loader
 
