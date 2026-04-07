@@ -1,3 +1,9 @@
+<div style="text-align: center;">
+<a href="https://www.beicundun.com/" target="_blank" rel="noopener noreferrer">
+  <img src="./library-banner.png" alt="bc-asset-loader library banner" width="100%" height="auto">
+</a>
+</div>
+
 # bc-asset-loader
 
 A JavaScript library that asynchronously preloads images, fonts, and videos in bulk.
@@ -214,6 +220,3 @@ Type definitions (`dist/bc-asset-loader.d.ts`) are bundled; no extra install is 
 ## License
 
 MIT
-
-## Library Banner
-[![bc-asset-loader](./library-banner.png)](https://www.beicundun.com/)
