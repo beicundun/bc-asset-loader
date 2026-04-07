@@ -9,7 +9,7 @@ const loader = new BcAssetLoader({
   image: [{ url: '/images/image1.jpg' }, { url: '/images/image2.jpg' }],
   font: [
     {
-      url: '/fonts/TickingTimebombBB_ital.woff2',
+      url: '/fonts/TickingTimebombBB_ital.ttf',
       family: 'TickingTimebombBB',
       style: 'italic',
       weight: '400',
